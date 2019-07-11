@@ -1,0 +1,57 @@
+{
+    "name": "your-project-name",
+    "version": "1.0.0",
+    "license": "MIT",
+    "main": "./dist/main.min.js",
+    "scripts": {
+        "dev": "webpack-dev-server --mode development --config webpack.renderer.dev.config.js --hot",
+        "build-renderer": "webpack --mode production --config webpack.renderer.config.js",
+        "build-main": "webpack --mode production --config webpack.main.config.js",
+        "build": "cross-env NODEV_ENV=production yarn build-renderer && yarn build-main",
+        "dist": "yarn build && electron-builder",
+        "pack": "yarn build && electron-builder --dir",
+        "start-main": "cross-env NODEV_ENV=development webpack --mode development --config webpack.main.config.js && electron ./dist/main.min.js"
+    },
+    "build": {
+        "productName": "Product Name",
+        "appId": "App ID",
+        "mac": {
+            "category": "your.app.category",
+            "identity": null
+        },
+        "directories": {
+            "output": "release"
+        },
+        "files": [
+            "dist/",
+            "node_modules/",
+            "package.json"
+        ]
+    },
+    "dependencies": {
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.5.4",
+        "@babel/preset-env": "^7.5.4",
+        "@babel/preset-react": "^7.0.0",
+        "@hot-loader/react-dom": "^16.8.6",
+        "@types/react-dom": "^16.8.4",
+        "babel-loader": "^8.0.6",
+        "concurrently": "^4.1.1",
+        "cross-env": "^5.2.0",
+        "css-loader": "^3.0.0",
+        "electron": "^5.0.6",
+        "electron-builder": "^20.44.4",
+        "html-webpack-plugin": "^3.2.0",
+        "style-loader": "^0.23.1",
+        "ts-loader": "^6.0.4",
+        "typescript": "^3.5.3",
+        "uglifyjs-webpack-plugin": "^2.1.3",
+        "webpack": "^4.35.3",
+        "webpack-cli": "^3.3.5",
+        "webpack-dev-server": "^3.7.2",
+        "webpack-merge": "^4.2.1"
+    }
+}
