@@ -1,2 +1,2 @@
-# electron-react-boilerplate
-A lightweight electron react boilerplate
+# electron-react-ts-boilerplate
+A lightweight Electron React boilerplate to use with TypeScript.
