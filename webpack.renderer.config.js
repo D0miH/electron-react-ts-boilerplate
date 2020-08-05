@@ -5,7 +5,7 @@ const webpackMerge = require("webpack-merge");
 
 const baseConfig = require("./webpack.base.config");
 
-module.exports = webpackMerge.smart(baseConfig, {
+module.exports = webpackMerge.merge(baseConfig, {
     entry: "./src/renderer/index.tsx",
     output: {
         path: path.join(__dirname, "/dist"),
